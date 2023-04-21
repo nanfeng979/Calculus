@@ -13,7 +13,9 @@ public class Weapon : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.name == "Integ") {
             Destroy(gameObject);
-            other.GetComponent<Integ>().myMath_1.qiudao();
+            other.GetComponent<PlayerBasicClass>()?.value.differentical();
+            // other.GetComponent<PlayerBasicClass>()?.value.integral();
+            other.GetComponent<PlayerBasicClass>()?.value.printData();
         }
     }
 }

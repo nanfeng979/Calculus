@@ -4,23 +4,37 @@ using UnityEngine;
 
 public class myMath
 {
-    public int x;
-    public int n;
-
-
-    public myMath(int x, int n) {
-        this.x = x;
-        this.n = n;
+    private int coefficient; // 系数
+    public int Coeff {
+        get => coefficient;
+        set => coefficient = value;
     }
 
-    public myMath qiudao() {
-        this.x *= this.n;
-        this.n--;
+    private int exponential; // 指数
+    public int Exp {
+        get => exponential;
+        set => exponential = value;
+    }
+
+    public myMath(int coff, int exp) {
+        Coeff = coff;
+        Exp = exp;
+    }
+
+    public myMath differentical() { // 微分
+        Coeff *= Exp;
+        Exp--;
         return this;
     }
 
-    public void print() {
-        Debug.Log(x + "x^" + n);
+    public myMath integral() { // 积分
+        Exp++;
+        Coeff /= Exp;
+        return this;
+    }
+
+    public void printData() {
+        Debug.Log(Coeff + "x^" + Exp);
     }
 
     public myMath GetMyMath() {

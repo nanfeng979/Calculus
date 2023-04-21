@@ -20,6 +20,8 @@ public class PlayerBasicClass : MonoBehaviour
     public string AxisNameByHorizontal {
         set => axisNameByHorizontal = value;
     }
+
+    public myMath value;
     
     private Rigidbody2D rig;
 
@@ -47,9 +49,9 @@ public class PlayerBasicClass : MonoBehaviour
         hp += heal;
     }
 
-    public bool IsDead()
+    protected virtual bool IsDead()
     {
-        return hp <= 0;
+        return false;
     }
 
     protected virtual void Attack() { 
