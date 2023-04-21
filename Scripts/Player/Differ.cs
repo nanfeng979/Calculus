@@ -17,9 +17,9 @@ public class Differ : PlayerBasicClass
     new void Update()
     {
         base.Update();
-
+        if(Input.GetKeyDown(KeyCode.J)) {
+            Attack();
+        }
     }
-
-    
 
 }

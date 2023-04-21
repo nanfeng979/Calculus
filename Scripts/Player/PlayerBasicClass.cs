@@ -52,10 +52,10 @@ public class PlayerBasicClass : MonoBehaviour
         return hp <= 0;
     }
 
-
-    public void Attack() { 
-        GameObject weaponTemp = Instantiate(weapon, weaponPos.position, Quaternion.identity, weaponPos);
+    protected virtual void Attack() { 
+        Instantiate(weapon, weaponPos.position, Quaternion.identity, weaponPos);
     }
+
     private bool OnMoveByHorizontal()
     {
         float distanceHorizontalTemp = Input.GetAxis(axisNameByHorizontal);
