@@ -32,4 +32,8 @@ public class Integ : PlayerBasicClass
         return value.GetMyMath().Exp < 1;
     }
 
+    protected override void Attack() {
+        Debug.Log("Integ is Attack");
+    }
+
 }

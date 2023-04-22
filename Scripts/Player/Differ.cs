@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// public class Differ : PlayerBasicClass, IPlayerBasicClass
-public class Differ : PlayerBasicClass
+public class Differ : PlayerBasicClass, IPlayerBasicClass
 {
     new void Start()
     {
@@ -30,6 +29,10 @@ public class Differ : PlayerBasicClass
 
     protected override bool IsDead() {
         return value.GetMyMath().Exp > 3;
+    }
+
+    protected override void Attack() {
+        Debug.Log("Differ is Attack");
     }
 
 }
