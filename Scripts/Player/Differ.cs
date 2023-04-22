@@ -7,11 +7,7 @@ public class Differ : PlayerBasicClass, IPlayerBasicClass
     new void Start()
     {
         base.Start();
-        Hp = 4;
-        MoveSpeed = 3.0f;
-        AxisNameByHorizontal = "LeftPlayerHorizontal";
-
-        value = new myMath(6, 1); // 6x^3
+        InitData();
     }
 
     new void Update()
@@ -27,12 +23,16 @@ public class Differ : PlayerBasicClass, IPlayerBasicClass
         }
     }
 
+    public void InitData() {
+        base.InitData(3.0f, "LeftPlayerHorizontal", new myMath(6, 1));
+    }
+
     protected override bool IsDead() {
         return value.GetMyMath().Exp > 3;
     }
 
     protected override void Attack() {
-        Debug.Log("Differ is Attack");
+        
     }
 
 }

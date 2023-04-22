@@ -5,11 +5,6 @@ using TMPro;
 
 public class PlayerBasicClass : MonoBehaviour
 {
-    public int hp;
-    public int Hp {
-        get => hp;
-        set => hp = value;
-    }
     private float distanceHorizontal;
     private float moveSpeed;
     public float MoveSpeed {
@@ -17,7 +12,8 @@ public class PlayerBasicClass : MonoBehaviour
         set => moveSpeed = value;
     }
 
-    private string axisNameByHorizontal;
+    // 目前自定义的输入系统值有: LeftPlayerHorizontal, RightPlayerHorizontal
+    private string axisNameByHorizontal; // 需要手动添加Input Manager的值
     public string AxisNameByHorizontal {
         set => axisNameByHorizontal = value;
     }
@@ -26,8 +22,8 @@ public class PlayerBasicClass : MonoBehaviour
     
     private Rigidbody2D rig;
 
-    [SerializeField] private GameObject weapon;
-    [SerializeField] private Transform weaponPos;
+    [SerializeField] protected GameObject weapon;
+    [SerializeField] protected Transform weaponPos;
     public TMP_Text value_text;
 
     // Functions
@@ -37,44 +33,32 @@ public class PlayerBasicClass : MonoBehaviour
     }
 
     protected void Update() {
-        textManager();
+        TextManager();
 
-        if(distanceHorizontal != 0) {
-            transform.localScale = new Vector3(distanceHorizontal, 1, 1);
-        }
-
-        OnMoveByHorizontal();
+        OnKeyDonwByHorizontal();
         Moving();
     }
 
-    public void TakeDamage(int damage)
-    {
-        hp -= damage;
+    protected virtual void InitData(float _moveSpeed, string _axisNameByHorizontal, myMath _value) {
+        moveSpeed = _moveSpeed;
+        AxisNameByHorizontal = _axisNameByHorizontal;
+        value = _value;
     }
 
-    public void Heal(int heal)
-    {
-        hp += heal;
-    }
+    protected virtual bool IsDead() { return false; }
 
-    protected virtual bool IsDead()
-    {
-        return false;
-    }
+    protected virtual void Attack() { Debug.Log("Run Attack()"); }
 
-    protected virtual void Attack() { 
-        Instantiate(weapon, weaponPos.position, Quaternion.identity, weaponPos);
-    }
-
-    private bool OnMoveByHorizontal()
+    private bool OnKeyDonwByHorizontal()
     {
         float distanceHorizontalTemp = Input.GetAxis(axisNameByHorizontal);
-        if(distanceHorizontalTemp != 0) {
-            distanceHorizontal = distanceHorizontalTemp;
-            return true;
+        distanceHorizontal = distanceHorizontalTemp;
+        if(distanceHorizontalTemp == 0) {
+            return false;
         }
-        distanceHorizontal = 0;
-        return false;
+
+        transform.localScale = new Vector3(distanceHorizontal, 1, 1);
+        return true;
     }
 
     private void Moving() { 
@@ -83,7 +67,7 @@ public class PlayerBasicClass : MonoBehaviour
         }
     }
 
-    private void textManager() {
+    private void TextManager() {
         value_text.text = value.GetValue();
         value_text.transform.localScale = transform.localScale;
     }
@@ -93,5 +77,5 @@ public class PlayerBasicClass : MonoBehaviour
 
 public interface IPlayerBasicClass
 {
-    // public void Attack();
+    public void InitData();
 }

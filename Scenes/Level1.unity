@@ -403,7 +403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568444629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.67, y: 0.027, z: 0}
+  m_LocalPosition: {x: 0.81, y: 0.027, z: 0}
   m_LocalScale: {x: 0.19, y: 0.19, z: 0.19}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -558,7 +558,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6beea930fcc33054092928c400a87f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
   weapon: {fileID: 5921614570390346967, guid: 1efe14548e01b5249bf0e57e86ffc493, type: 3}
   weaponPos: {fileID: 568444630}
   value_text: {fileID: 1413361645}
@@ -1440,7 +1439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f37c49594936a443bf3795f89a8677c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
   weapon: {fileID: 5921614570390346967, guid: 1efe14548e01b5249bf0e57e86ffc493, type: 3}
   weaponPos: {fileID: 874155628}
   value_text: {fileID: 292305634}

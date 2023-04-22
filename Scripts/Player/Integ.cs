@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Integ : PlayerBasicClass
+public class Integ : PlayerBasicClass, IPlayerBasicClass
 {
     new void Start()
     {
         base.Start();
-        Hp = 5;
-        MoveSpeed = 3.0f;
-        AxisNameByHorizontal = "RightPlayerHorizontal";
-
-        value = new myMath(1, 3); // x^3
+        InitData();
     }
 
     new void Update()
@@ -26,9 +22,12 @@ public class Integ : PlayerBasicClass
             Destroy(gameObject);
         }
     }
+
+    public void InitData() {
+        base.InitData(3.0f, "RightPlayerHorizontal", new myMath(1, 3));
+    }
     
     protected override bool IsDead() {
-
         return value.GetMyMath().Exp < 1;
     }
 
