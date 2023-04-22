@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-
 
 // public class Differ : PlayerBasicClass, IPlayerBasicClass
 public class Differ : PlayerBasicClass
 {
-    public TMP_Text value_text;
-
     new void Start()
     {
         base.Start();
@@ -22,8 +18,6 @@ public class Differ : PlayerBasicClass
     new void Update()
     {
         base.Update();
-
-        value_text.text = value.GetValue();
 
         if(Input.GetKeyDown(KeyCode.J)) {
             Attack();

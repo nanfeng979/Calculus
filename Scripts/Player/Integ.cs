@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Integ : PlayerBasicClass
 {
-    public TMP_Text value_text;
-
     new void Start()
     {
         base.Start();
@@ -20,8 +17,6 @@ public class Integ : PlayerBasicClass
     new void Update()
     {
         base.Update();
-
-        value_text.text = value.GetValue();
 
         if(Input.GetKeyDown(KeyCode.Keypad1)) {
             Attack();

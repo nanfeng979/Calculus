@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerBasicClass : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PlayerBasicClass : MonoBehaviour
 
     [SerializeField] private GameObject weapon;
     [SerializeField] private Transform weaponPos;
+    public TMP_Text value_text;
 
     // Functions
 
@@ -35,6 +37,12 @@ public class PlayerBasicClass : MonoBehaviour
     }
 
     protected void Update() {
+        textManager();
+
+        if(distanceHorizontal != 0) {
+            transform.localScale = new Vector3(distanceHorizontal, 1, 1);
+        }
+
         OnMoveByHorizontal();
         Moving();
     }
@@ -73,6 +81,11 @@ public class PlayerBasicClass : MonoBehaviour
         if(distanceHorizontal != 0) {
             rig.AddForce(Vector2.right * distanceHorizontal * moveSpeed);
         }
+    }
+
+    private void textManager() {
+        value_text.text = value.GetValue();
+        value_text.transform.localScale = transform.localScale;
     }
 
 }
