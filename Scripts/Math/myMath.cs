@@ -42,10 +42,17 @@ public class myMath
     }
 
     public string GetValue() {
-        string sup = "<sup>" + Exp + "</sup>";
+        string sup = ExpFormat(Exp);
+        if(Exp == 1) {
+            sup = "";
+        }
         if(Coeff == 1) {
             return "X" + sup;
         }
         return Coeff + "X" + sup;
+    }
+
+    public string ExpFormat(int exp) {
+        return "<sup>" + exp + "</sup>";
     }
 }
