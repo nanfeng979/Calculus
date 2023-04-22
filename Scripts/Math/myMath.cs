@@ -40,4 +40,12 @@ public class myMath
     public myMath GetMyMath() {
         return this;
     }
+
+    public string GetValue() {
+        string sup = "<sup>" + Exp + "</sup>";
+        if(Coeff == 1) {
+            return "X" + sup;
+        }
+        return Coeff + "X" + sup;
+    }
 }
