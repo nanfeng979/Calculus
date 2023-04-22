@@ -14,7 +14,12 @@ public class Weapon : MonoBehaviour
         if(other.name == "Integ") {
             Destroy(gameObject);
             other.GetComponent<PlayerBasicClass>()?.value.differentical();
-            // other.GetComponent<PlayerBasicClass>()?.value.integral();
+            other.GetComponent<PlayerBasicClass>()?.value.printData();
+        }
+
+        if(other.name == "Differ") {
+            Destroy(gameObject);
+            other.GetComponent<PlayerBasicClass>()?.value.integral();
             other.GetComponent<PlayerBasicClass>()?.value.printData();
         }
     }

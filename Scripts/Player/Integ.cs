@@ -23,6 +23,10 @@ public class Integ : PlayerBasicClass
 
         value_text.text = value.GetValue();
 
+        if(Input.GetKeyDown(KeyCode.Keypad1)) {
+            Attack();
+        }
+
         if(IsDead()) {
             Destroy(gameObject);
         }

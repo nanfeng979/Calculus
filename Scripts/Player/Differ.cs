@@ -22,6 +22,10 @@ public class Differ : PlayerBasicClass
         if(Input.GetKeyDown(KeyCode.J)) {
             Attack();
         }
+
+        if(IsDead()) {
+            Destroy(gameObject);
+        }
     }
 
     protected override bool IsDead() {
